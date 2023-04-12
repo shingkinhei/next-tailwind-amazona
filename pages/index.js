@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Layout from '@/components/Layout'
+import ProductItem from '@/components/ProductItem'
+import data from '@/utils/data'
 
 export default function Home() {
   return (
-    <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1 className="text-3xl font-bold">Next Tailwind Amazona</h1>
-      </main>
-    </div>
+    <Layout title="Home Page">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {data.products.map((product)=>(
+          <ProductItem product={product} key={product.slug}></ProductItem>
+        ))}
+      </div>
+    </Layout>
   )
 }
