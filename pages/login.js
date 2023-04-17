@@ -49,11 +49,11 @@ export default function LoginScreen() {
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            {...register('email', {
-              required: 'Please enter email',
+            {...register("email", {
+              required: "Please enter email",
               pattern: {
                 value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                message: 'Please enter valid email',
+                message: "Please enter valid email",
               },
             })}
             className="w-full"
@@ -68,9 +68,9 @@ export default function LoginScreen() {
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            {...register('password', {
-              required: 'Please enter password',
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+            {...register("password", {
+              required: "Please enter password",
+              minLength: { value: 6, message: "password is more than 5 chars" },
             })}
             className="w-full"
             id="password"
@@ -85,7 +85,7 @@ export default function LoginScreen() {
         </div>
         <div className="mb-4 ">
           Don&apos;t have an account? &nbsp;
-          <Link href="register">Register</Link>
+          <Link href={`/register?redirect=${redirect || "/"}`}>Register</Link>
         </div>
       </form>
     </Layout>
